@@ -75,8 +75,27 @@ then create a variable readline = require("readline-sync")
 This skill is from Values, Data Types, and Operations-4.
 */
 const readline = require("readline-sync");
+// get the user name
+let userName = readline.question(`${loginTemplate}Username: `);
+// find the user name in the user names list and assigned to login name
+// Use the iterator method find to return the first match and will return undefined if did not find any match
+// This skill is from Use Array
+loginName = userNamesList.find((element) =>
+  element.startsWith(userName.toLowerCase())
+);
+console.log(loginName);
 
-loginName = readline.question(`${loginTemplate}Username: `);
+// To check login name is in the user name list.
+if (loginName) {
+  validLoginName = true;
+  console.log(`${loginName} is in ${userNamesList}`);
+  console.log(validLoginName);
+} else {
+  validLoginName = false;
+  console.log(`${loginName} is not in ${userNamesList}`);
+  console.log(validLoginName);
+}
+
 loginPassword = readline.question(`${loginTemplate} "Password: `);
 
 signUpName = readline.question(`${signupTemplate} Username: `);
