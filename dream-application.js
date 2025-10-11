@@ -24,30 +24,15 @@ Start
             accept password
             log in page
   product search page
-    search choices
-      if not lazada and not shopee (default)
-       two column result page
-      else if lazada and shopee
-        two column result page
-      else
-        one column result page
-  result page
+    search category or item name
+  products list page
     filter choices
       sort by price
       sort by release
       sort by review
       sort by sold count
-    two column result page
-      Lazada and Shopee product list
-    on column result page
-      Lazada or Shopee product list
-  product list
-    product order
-      filter chosen
-    product count
-      if n
-        show n
-      else
-        show all
+    display choice
+      top 5
+      all
 End
 */
