@@ -96,8 +96,27 @@ if (loginName) {
   validLoginName = true;
   console.log(`${loginName} is in ${userNamesList}`);
   console.log(validLoginName);
-  // ask user for password
-  loginPassword = readline.question(`${loginTemplate} "Password: `);
+  /*
+  In here I combined skills from Stringing Characters Together and Control Structures and Logic
+  I use string common method to split the name and password and assign it to new variable.
+  I use loop and operator === to compare and validate the password.
+  The while loop will continuously ask the user for password until correct password is given.
+  */
+  while (!validLoginPassword) {
+    loginPassword = readline.question(`${loginTemplate} "Password: `);
+    let userPassword = loginName.split(" ")[1];
+    console.log(userPassword);
+
+    if (loginPassword === userPassword) {
+      validLoginPassword = true;
+      console.log(`Correct password. Passwosrd is ${userPassword}`);
+      console.log(validLoginPassword);
+    } else {
+      validLoginPassword = false;
+      console.log(`Incorrect password. Passwosrd is ${userPassword}`);
+    }
+  }
+  // if not valid user
 } else {
   validLoginName = false;
   console.log(`${loginName} is not in ${userNamesList}`);
