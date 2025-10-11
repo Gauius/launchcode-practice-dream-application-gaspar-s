@@ -89,21 +89,17 @@ console.log(loginName);
 
 /*
 login and sign up validation
-Here I use the skills from Control Structures and Logic.
-I use if else for conditional statements
-Allowed user to login if user is valid and ask the user to sign up if not.
+Here I use the skills from Control Structures and Logic, Stringing Characters Together and Use array
+I use if else conditional statements, for and while loops
+I used string methods combined with array methos to find and extract array values
+I also use different operators to compare and validate values.
 */
 
 if (loginName) {
   validLoginName = true;
   console.log(`${loginName} is in ${userNamesList}`);
   console.log(validLoginName);
-  /*
-  In here I combined skills from Stringing Characters Together and Control Structures and Logic
-  I use string common method to split the name and password and assign it to new variable.
-  I use loop and operator === to compare and validate the password.
-  The while loop will continuously ask the user for password until correct password is given.
-  */
+  //  continuously ask the user for password until correct password is given.
   while (!validLoginPassword) {
     loginPassword = readline.question(`${loginTemplate} "Password: `);
     let userPassword = loginName.split(" ")[1];
@@ -118,7 +114,7 @@ if (loginName) {
       console.log(`Incorrect password. Passwosrd is ${userPassword}`);
     }
   }
-  // if not valid user
+  //  continuously ask the user for new user names when the name is not available.
 } else {
   while (!validSignUpName) {
     signUpName = readline.question(
@@ -135,7 +131,7 @@ if (loginName) {
       newUser = signUpName;
       console.log("New User is ok: " + newUser);
     }
-    // verify if new user name exist
+    // check if the given user name already exist in the usernames list
   }
   while (!validSignUpPassword) {
     signUpPassword = readline.question(`${signupTemplate}Password: `);
@@ -153,8 +149,9 @@ if (loginName) {
       );
     }
     console.log(signUpPassword.length, hasUpperCase, hasNumber);
-    console.log(validSignUpPassword);
   }
+  // Use the array method push to add new user and new user password to the user name list array
+  // This skill is from Use Array
   userNamesList.push(signUpName + " " + signUpPassword);
   console.log(userNamesList);
 }
