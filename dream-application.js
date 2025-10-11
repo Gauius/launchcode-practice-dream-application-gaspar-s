@@ -28,9 +28,7 @@ Start
   products list page
     filter choices
       sort by price
-      sort by release
       sort by review
-      sort by sold count
     display choice
       top 5
       all
