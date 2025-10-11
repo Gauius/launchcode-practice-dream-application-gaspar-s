@@ -280,3 +280,33 @@ for (let i = 0; i < lazadaProductSearchResult.length; i++) {
     `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
   );
 }
+
+/*Here will apply different array methods for filter choices.
+To simulate reviewing product in two different ecommerce  websites.
+Here I use the falsyness of undefined and did not assign value to variable exit.
+Skills I used here are from Control Structures and Logic, Stringing Characters Together and Use array
+*/
+let exit;
+
+while (!exit) {
+  let filterChoice = readline.question(`${productsListTemplate}
+    Please choose filter to sort the products
+    1. Sort by Name
+    2. Sort by Price
+    3. Sort by Raating
+    4. Exit\n
+    Your choice: `);
+
+  if (filterChoice === "1") {
+    lazadaProductSearchResult.sort();
+    shopeeProductSearchResult.sort();
+    for (let i = 0; i < lazadaProductSearchResult.length; i++) {
+      let columnSpacing = " ".repeat(50 - lazadaProductSearchResult[i].length);
+      console.log(
+        `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
+      );
+    }
+  } else if (filterChoice === "4") {
+    exit = true;
+  }
+}
