@@ -77,6 +77,7 @@ then create a variable readline = require("readline-sync")
 This skill is from Values, Data Types, and Operations-4.
 */
 const readline = require("readline-sync");
+
 // get the user name
 let userName = readline.question(`${loginTemplate}Username: `);
 // find the user name in the user names list and assigned to login name
@@ -154,4 +155,42 @@ if (loginName) {
   // This skill is from Use Array
   userNamesList.push(signUpName + " " + signUpPassword);
   console.log(userNamesList);
+}
+
+// variables for products search and list page
+const productSearchTemplate = `########## PRODUCT SEARCH PAGE ##########
+Please select category of products to search: 1.Sports 2.Clothing 3.Electronics.`;
+const productsListTemplate = `## LAZADA PRODUCTS LIST ##                         ## SHOPEE PRODUCTS LIST ##`;
+console.log(productSearchTemplate);
+// console.log(productsListTemplate);
+
+// create 2d array
+let lazadaProductsList = [
+  ["Basket Ball", "Base Ball", "Tennis Ball", "Foot Ball"],
+  ["Shirt", "Short", "Pants", "Jacket"],
+];
+let shopeeProductsList = [
+  ["Basket Ball", "Base Ball", "Tennis Ball", "Foot Ball"],
+  ["Shirt", "Short", "Pants", "Jacket"],
+];
+
+let productToSearch = "";
+productToSearch = readline.question("Search:");
+let search = 0;
+if (productToSearch === "1") {
+  search = 0;
+} else if (productToSearch === "2") {
+  search = 1;
+}
+let lazadaProductSearchResult = lazadaProductsList[search];
+let shopeeProductSearchResult = shopeeProductsList[search];
+
+console.log(productsListTemplate);
+// add column spacing to the products list
+const columnSpacing = " ".repeat(50);
+
+for (let i = 0; i < lazadaProductSearchResult.length; i++) {
+  console.log(
+    `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
+  );
 }
