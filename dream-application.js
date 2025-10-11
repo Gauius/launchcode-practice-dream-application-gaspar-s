@@ -155,4 +155,6 @@ if (loginName) {
     console.log(signUpPassword.length, hasUpperCase, hasNumber);
     console.log(validSignUpPassword);
   }
+  userNamesList.push(signUpName + " " + signUpPassword);
+  console.log(userNamesList);
 }
