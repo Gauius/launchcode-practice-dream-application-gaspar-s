@@ -51,6 +51,8 @@ let signUpName;
 let signUpPassword;
 let validSignUpName = false;
 let validSignUpPassword = false;
+let hasUpperCase = false;
+let hasNumber = false;
 
 // this is template literal and using specila character \n to add new line.
 // This skill is from Stringing Characters Together
@@ -118,10 +120,39 @@ if (loginName) {
   }
   // if not valid user
 } else {
-  validLoginName = false;
-  console.log(`${loginName} is not in ${userNamesList}`);
-  console.log(validLoginName);
-  // To ask user to sign up
-  signUpName = readline.question(`${signupTemplate} Username: `);
-  signUpPassword = readline.question(`${signupTemplate} Password: `);
+  while (!validSignUpName) {
+    signUpName = readline.question(
+      `${signupTemplate}Please signup...\nCreate user name: `
+    );
+    let newUser = userNamesList.find((element) =>
+      element.includes(signUpName.toLowerCase())
+    );
+    if (newUser) {
+      validSignUpName = false;
+      console.log("User name is not available. Please try again.");
+    } else {
+      validSignUpName = true;
+      newUser = signUpName;
+      console.log("New User is ok: " + newUser);
+    }
+    // verify if new user name exist
+  }
+  while (!validSignUpPassword) {
+    signUpPassword = readline.question(`${signupTemplate}Password: `);
+    for (let i = 0; i < signUpPassword.length; i++) {
+      const password = signUpPassword[i];
+      if (password >= "A" && password <= "Z") hasUpperCase = true;
+      if (password >= "0" && password <= "9") hasNumber = true;
+    }
+    if (signUpPassword.length >= 8 && hasUpperCase && hasNumber) {
+      validSignUpPassword = true;
+      console.log("PASSWORD IS VALID");
+    } else {
+      console.log(
+        "Password must be atleast eight characters, must have an uppercase and a number"
+      );
+    }
+    console.log(signUpPassword.length, hasUpperCase, hasNumber);
+    console.log(validSignUpPassword);
+  }
 }
