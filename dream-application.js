@@ -85,18 +85,24 @@ loginName = userNamesList.find((element) =>
 );
 console.log(loginName);
 
-// To check login name is in the user name list.
+/*
+login and sign up validation
+Here I use the skills from Control Structures and Logic.
+I use if else for conditional statements
+Allowed user to login if user is valid and ask the user to sign up if not.
+*/
+
 if (loginName) {
   validLoginName = true;
   console.log(`${loginName} is in ${userNamesList}`);
   console.log(validLoginName);
+  // ask user for password
+  loginPassword = readline.question(`${loginTemplate} "Password: `);
 } else {
   validLoginName = false;
   console.log(`${loginName} is not in ${userNamesList}`);
   console.log(validLoginName);
+  // To ask user to sign up
+  signUpName = readline.question(`${signupTemplate} Username: `);
+  signUpPassword = readline.question(`${signupTemplate} Password: `);
 }
-
-loginPassword = readline.question(`${loginTemplate} "Password: `);
-
-signUpName = readline.question(`${signupTemplate} Username: `);
-signUpPassword = readline.question(`${signupTemplate} Password: `);
