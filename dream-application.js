@@ -160,7 +160,7 @@ if (loginName) {
 // variables for products search and list page
 const productSearchTemplate = `########## PRODUCT SEARCH PAGE ##########
 Please select category of products to search: 1.Sports 2.Clothing 3.Electronics.`;
-const productsListTemplate = `## LAZADA PRODUCTS LIST ##                         ## SHOPEE PRODUCTS LIST ##`;
+const productsListTemplate = `## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##`;
 console.log(productSearchTemplate);
 // console.log(productsListTemplate);
 
@@ -182,14 +182,19 @@ if (productToSearch === "1") {
 } else if (productToSearch === "2") {
   search = 1;
 }
+// This is to access the array using bracket notation. Use variable to make dynamic access.
+// This skill is from Use Array
 let lazadaProductSearchResult = lazadaProductsList[search];
 let shopeeProductSearchResult = shopeeProductsList[search];
 
 console.log(productsListTemplate);
-// add column spacing to the products list
-const columnSpacing = " ".repeat(50);
+// add column spacing to the products lisT
 
+// use standard for loop and string literals to display the list in 2 columns.
+// use additional string method repeat and length to align spacing between products list
+// This skill is from Stringing Characters Together
 for (let i = 0; i < lazadaProductSearchResult.length; i++) {
+  let columnSpacing = " ".repeat(50 - lazadaProductSearchResult[i].length);
   console.log(
     `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
   );
