@@ -320,9 +320,11 @@ while (!exit) {
         `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
       );
     }
-    // Sorted by Price: I used array sort method with call back funcion.
-    // I used string method for the call back variable a and b.
+    //Here to sort by price and rating I used array sort method with call back funcion.
+    // I used string method to extract variable for the call back variable a and b.
     // This is combined skills from Stringing Characters Together and Use array
+
+    // Sorted by Price
   } else if (filterChosen === "2") {
     console.log(
       "\n==========  " +
@@ -346,12 +348,103 @@ while (!exit) {
         `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
       );
     }
+    // Sorted by Rating
+  } else if (filterChosen === "3") {
+    console.log(
+      "\n==========  " +
+        filterChoices[2] +
+        "  ==========" +
+        productsListTemplate
+    );
+    lazadaProductSearchResult.sort((a, b) => {
+      let ratingA = a.slice(a.indexOf(":") + 1, a.indexOf("star"));
+      let ratingB = b.slice(b.indexOf(":") + 1, b.indexOf("star"));
+      return ratingA - ratingB;
+    });
+    shopeeProductSearchResult.sort((a, b) => {
+      let ratingA = a.slice(a.indexOf(":") + 1, a.indexOf("star"));
+      let ratingB = b.slice(b.indexOf(":") + 1, b.indexOf("star"));
+      return ratingA - ratingB;
+    });
+
+    for (let i = 0; i < lazadaProductSearchResult.length; i++) {
+      let columnSpacing = " ".repeat(50 - lazadaProductSearchResult[i].length);
+      console.log(
+        `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
+      );
+    }
   } else if (filterChosen === "4") {
     exit = true;
-  }
+  } else console.log("Please select a valid choice: 1-4");
 }
 
-// Output with out sorting
+// Output without filter
+/*
+Please select category of products to search: 1.Sports 2.Clothing 3.Electronics.
+Search:1
+
+## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##
+Soccer Ball $209.28 rating: 1 star                Soccer Ball $105.76 rating: 4 star
+Basketball $278.53 rating: 0 star                 Cycling Helmet $250.55 rating: 4 star
+Running Shoes $67.00 rating: 2 star               Basketball $82.54 rating: 1 star
+Soccer Ball $130.94 rating: 5 star                Running Shoes $93.27 rating: 1 star
+Dumbbell Set $191.45 rating: 0 star               Yoga Mat $104.20 rating: 0 star
+Cycling Helmet $74.64 rating: 0 star              Soccer Ball $205.58 rating: 3 star
+Dumbbell Set $286.30 rating: 2 star               Cycling Helmet $286.15 rating: 4 star
+Yoga Mat $69.00 rating: 5 star                    Running Shoes $259.05 rating: 5 star
+Basketball $202.73 rating: 4 star                 Golf Club $184.66 rating: 4 star
+Baseball Bat $85.04 rating: 4 star                Hockey Stick $73.00 rating: 1 star
+Tennis Racket $200.91 rating: 4 star              Tennis Racket $221.91 rating: 2 star
+Running Shoes $270.94 rating: 3 star              Running Shoes $272.94 rating: 4 star
+*/
 // Output sorted by Name
+/*
+==========  Sort by Name  ==========
+## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##
+Baseball Bat $85.04 rating: 4 star                Basketball $82.54 rating: 1 star
+Basketball $202.73 rating: 4 star                 Cycling Helmet $250.55 rating: 4 star
+Basketball $278.53 rating: 0 star                 Cycling Helmet $286.15 rating: 4 star
+Cycling Helmet $74.64 rating: 0 star              Golf Club $184.66 rating: 4 star
+Dumbbell Set $191.45 rating: 0 star               Hockey Stick $73.00 rating: 1 star
+Dumbbell Set $286.30 rating: 2 star               Running Shoes $259.05 rating: 5 star
+Running Shoes $270.94 rating: 3 star              Running Shoes $272.94 rating: 4 star
+Running Shoes $67.00 rating: 2 star               Running Shoes $93.27 rating: 1 star
+Soccer Ball $130.94 rating: 5 star                Soccer Ball $105.76 rating: 4 star
+Soccer Ball $209.28 rating: 1 star                Soccer Ball $205.58 rating: 3 star
+Tennis Racket $200.91 rating: 4 star              Tennis Racket $221.91 rating: 2 star
+Yoga Mat $69.00 rating: 5 star                    Yoga Mat $104.20 rating: 0 star
+*/
 // Output sorted by Price
+/*
+==========  Sort by Price  ==========
+## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##
+Running Shoes $67.00 rating: 2 star               Hockey Stick $73.00 rating: 1 star
+Yoga Mat $69.00 rating: 5 star                    Basketball $82.54 rating: 1 star
+Cycling Helmet $74.64 rating: 0 star              Running Shoes $93.27 rating: 1 star
+Baseball Bat $85.04 rating: 4 star                Yoga Mat $104.20 rating: 0 star
+Soccer Ball $130.94 rating: 5 star                Soccer Ball $105.76 rating: 4 star
+Dumbbell Set $191.45 rating: 0 star               Golf Club $184.66 rating: 4 star
+Tennis Racket $200.91 rating: 4 star              Soccer Ball $205.58 rating: 3 star
+Basketball $202.73 rating: 4 star                 Tennis Racket $221.91 rating: 2 star
+Soccer Ball $209.28 rating: 1 star                Cycling Helmet $250.55 rating: 4 star
+Running Shoes $270.94 rating: 3 star              Running Shoes $259.05 rating: 5 star
+Basketball $278.53 rating: 0 star                 Running Shoes $272.94 rating: 4 star
+Dumbbell Set $286.30 rating: 2 star               Cycling Helmet $286.15 rating: 4 star
+*/
 // Output sorted by Rating
+/*
+==========  Sort by Rating  ==========
+## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##
+Cycling Helmet $74.64 rating: 0 star              Yoga Mat $104.20 rating: 0 star
+Dumbbell Set $191.45 rating: 0 star               Hockey Stick $73.00 rating: 1 star
+Basketball $278.53 rating: 0 star                 Basketball $82.54 rating: 1 star
+Soccer Ball $209.28 rating: 1 star                Running Shoes $93.27 rating: 1 star
+Running Shoes $67.00 rating: 2 star               Tennis Racket $221.91 rating: 2 star
+Dumbbell Set $286.30 rating: 2 star               Soccer Ball $205.58 rating: 3 star
+Running Shoes $270.94 rating: 3 star              Soccer Ball $105.76 rating: 4 star
+Baseball Bat $85.04 rating: 4 star                Golf Club $184.66 rating: 4 star
+Tennis Racket $200.91 rating: 4 star              Cycling Helmet $250.55 rating: 4 star
+Basketball $202.73 rating: 4 star                 Running Shoes $272.94 rating: 4 star
+Yoga Mat $69.00 rating: 5 star                    Cycling Helmet $286.15 rating: 4 star
+Soccer Ball $130.94 rating: 5 star                Running Shoes $259.05 rating: 5 star
+*/
