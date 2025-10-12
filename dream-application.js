@@ -160,7 +160,7 @@ if (loginName) {
 // variables for products search and list page
 const productSearchTemplate = `########## PRODUCT SEARCH PAGE ##########
 Please select category of products to search: 1.Sports 2.Clothing 3.Electronics.`;
-const productsListTemplate = `## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##`;
+const productsListTemplate = `\n## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##`;
 console.log(productSearchTemplate);
 // console.log(productsListTemplate);
 
@@ -287,17 +287,28 @@ Here I use the falsyness of undefined and did not assign value to variable exit.
 Skills I used here are from Control Structures and Logic, Stringing Characters Together and Use array
 */
 let exit;
-
+const filterChoices = [
+  "Sort by Name",
+  "Sort by Price",
+  "Sort by Rating",
+  "Exit",
+];
 while (!exit) {
-  let filterChoice = readline.question(`${productsListTemplate}
+  let filterChosen = readline.question(`${productsListTemplate}
     Please choose filter to sort the products
-    1. Sort by Name
-    2. Sort by Price
-    3. Sort by Raating
-    4. Exit\n
+    1. ${filterChoices[0]}
+    2. ${filterChoices[1]}
+    3. ${filterChoices[2]}
+    4. ${filterChoices[3]}
     Your choice: `);
 
-  if (filterChoice === "1") {
+  if (filterChosen === "1") {
+    console.log(
+      "\n==========  " +
+        filterChoices[0] +
+        "  ==========" +
+        productsListTemplate
+    );
     lazadaProductSearchResult.sort();
     shopeeProductSearchResult.sort();
     for (let i = 0; i < lazadaProductSearchResult.length; i++) {
@@ -306,7 +317,12 @@ while (!exit) {
         `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
       );
     }
-  } else if (filterChoice === "4") {
+  } else if (filterChosen === "4") {
     exit = true;
   }
 }
+
+// Output with out sorting
+// Output sorted by Name
+// Output sorted by Price
+// Output sorted by Rating
