@@ -302,6 +302,9 @@ while (!exit) {
     4. ${filterChoices[3]}
     Your choice: `);
 
+  // Sorted by Name: I use standard array sort method to sort the products list
+  // And then use for loop with the bracket notation to log the list.
+  // This skill is from Use Array
   if (filterChosen === "1") {
     console.log(
       "\n==========  " +
@@ -311,6 +314,32 @@ while (!exit) {
     );
     lazadaProductSearchResult.sort();
     shopeeProductSearchResult.sort();
+    for (let i = 0; i < lazadaProductSearchResult.length; i++) {
+      let columnSpacing = " ".repeat(50 - lazadaProductSearchResult[i].length);
+      console.log(
+        `${lazadaProductSearchResult[i]}${columnSpacing}${shopeeProductSearchResult[i]}`
+      );
+    }
+    // Sorted by Price: I used array sort method with call back funcion.
+    // I used string method for the call back variable a and b.
+    // This is combined skills from Stringing Characters Together and Use array
+  } else if (filterChosen === "2") {
+    console.log(
+      "\n==========  " +
+        filterChoices[1] +
+        "  ==========" +
+        productsListTemplate
+    );
+    lazadaProductSearchResult.sort((a, b) => {
+      let priceA = a.slice(a.indexOf("$") + 1, a.indexOf("rating") - 1);
+      let priceB = b.slice(b.indexOf("$") + 1, b.indexOf("rating") - 1);
+      return priceA - priceB;
+    });
+    shopeeProductSearchResult.sort((a, b) => {
+      let priceA = a.slice(a.indexOf("$") + 1, a.indexOf("rating") - 1);
+      let priceB = b.slice(b.indexOf("$") + 1, b.indexOf("rating") - 1);
+      return priceA - priceB;
+    });
     for (let i = 0; i < lazadaProductSearchResult.length; i++) {
       let columnSpacing = " ".repeat(50 - lazadaProductSearchResult[i].length);
       console.log(
