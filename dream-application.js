@@ -22,21 +22,19 @@ Start
             ask for password
           valid
             accept password
-            log in page
   product search page
-    search category or item name
+    choose category to search
   products list page
-    filter choices
+    choose filter to sort the products or exit
+      sort by name
       sort by price
-      sort by review
-    display choice
-      top 5
-      all
+      sort by rating
+      exit
 End
 */
 
 /* login variables
-I applied skilss here from Values, Data Types, and Operations.
+I applied skill here from Values, Data Types, and Operations.
 I used camel case naming conventions and used meaningful names that can define itself.
 I also used boolean varaibles and assigned false values.
 Though not needed as undefined is a faulsy value but this is for readability.
@@ -65,7 +63,7 @@ This skills is from Building Arrays
 I used proper array naming conventions by making it plural and adding list to the end.
 This a single array
 */
-let userNamesList = ["admin 1Q2W3E4R", "user Q1W2E3R4", "allan 1Q2W3E4R"];
+let userNamesList = ["allan 1Q2W3E4R"];
 // This is 2D array
 // This is productsList
 
@@ -102,9 +100,9 @@ if (loginName) {
   console.log(validLoginName);
   //  continuously ask the user for password until correct password is given.
   while (!validLoginPassword) {
-    loginPassword = readline.question(`${loginTemplate} "Password: `);
+    loginPassword = readline.question(`${loginTemplate}Password: `);
     let userPassword = loginName.split(" ")[1];
-    console.log(userPassword);
+    console.log(userPassword); //show the user password
 
     if (loginPassword === userPassword) {
       validLoginPassword = true;
@@ -159,7 +157,7 @@ if (loginName) {
 
 // variables for products search and list page
 const productSearchTemplate = `########## PRODUCT SEARCH PAGE ##########
-Please select category of products to search: 1.Sports 2.Clothing 3.Electronics.`;
+Please select category of products to search: 1.Sports 2.Electronics 3.Kitchen\n`;
 const productsListTemplate = `\n## LAZADA PRODUCTS LIST ##                        ## SHOPEE PRODUCTS LIST ##`;
 console.log(productSearchTemplate);
 // console.log(productsListTemplate);
@@ -256,13 +254,16 @@ let shopeeProductsList = [
 ];
 
 let productToSearch = "";
-productToSearch = readline.question("Search:");
-let search = 0;
+productToSearch = readline.question("Search: ");
+let search;
 if (productToSearch === "1") {
   search = 0;
 } else if (productToSearch === "2") {
   search = 1;
-}
+} else if (productToSearch === "3") {
+  search = 2;
+} else search = 0;
+
 // This is to access the array using bracket notation. Use variable to make dynamic access.
 // This skill is from Use Array
 let lazadaProductSearchResult = lazadaProductsList[search];
